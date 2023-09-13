@@ -9,7 +9,7 @@ public interface VacancyRepository {
 
     Vacancy save(Vacancy vacancy);
 
-    void delete(int id);
+    boolean delete(int id);
 
     boolean update(Vacancy vacancy);
 
