@@ -1,7 +1,6 @@
 package ru.job4j.dreamjob.repository;
 
 import ru.job4j.dreamjob.model.Candidate;
-import ru.job4j.dreamjob.model.Vacancy;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -38,8 +37,8 @@ public class MemoryCandidateRepository implements CandidateRepository {
     }
 
     @Override
-    public void delete(int id) {
-        candidates.remove(id);
+    public boolean delete(int id) {
+        return candidates.remove(id) != null;
     }
 
     @Override
