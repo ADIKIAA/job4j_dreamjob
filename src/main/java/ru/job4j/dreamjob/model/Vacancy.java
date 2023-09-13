@@ -13,6 +13,9 @@ public class Vacancy {
 
     private LocalDateTime localDateTime;
 
+    public Vacancy() {
+    }
+
     public Vacancy(int id, String title, String description, LocalDateTime localDateTime) {
         this.id = id;
         this.title = title;
