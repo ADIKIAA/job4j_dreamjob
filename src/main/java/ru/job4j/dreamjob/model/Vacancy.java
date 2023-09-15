@@ -13,14 +13,25 @@ public class Vacancy {
 
     private LocalDateTime localDateTime;
 
+    private boolean visible;
+
     public Vacancy() {
     }
 
-    public Vacancy(int id, String title, String description, LocalDateTime localDateTime) {
+    public Vacancy(int id, String title, String description, LocalDateTime localDateTime, boolean visible) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.localDateTime = localDateTime;
+        this.visible = visible;
+    }
+
+    public boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 
     public int getId() {

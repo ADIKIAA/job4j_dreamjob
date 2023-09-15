@@ -20,12 +20,12 @@ public class MemoryVacancyRepository implements VacancyRepository {
     private final Map<Integer, Vacancy> vacancies = new ConcurrentHashMap<>();
 
     private MemoryVacancyRepository() {
-        save(new Vacancy(0, "Intern Java Developer", "description", LocalDateTime.now()));
-        save(new Vacancy(0, "Junior Java Developer", "description", LocalDateTime.now()));
-        save(new Vacancy(0, "Junior+ Java Developer", "description", LocalDateTime.now()));
-        save(new Vacancy(0, "Middle Java Developer", "description", LocalDateTime.now()));
-        save(new Vacancy(0, "Middle+ Java Developer", "description", LocalDateTime.now()));
-        save(new Vacancy(0, "Senior Java Developer", "description", LocalDateTime.now()));
+        save(new Vacancy(0, "Intern Java Developer", "description", LocalDateTime.now(), true));
+        save(new Vacancy(0, "Junior Java Developer", "description", LocalDateTime.now(), true));
+        save(new Vacancy(0, "Junior+ Java Developer", "description", LocalDateTime.now(), true));
+        save(new Vacancy(0, "Middle Java Developer", "description", LocalDateTime.now(), true));
+        save(new Vacancy(0, "Middle+ Java Developer", "description", LocalDateTime.now(), true));
+        save(new Vacancy(0, "Senior Java Developer", "description", LocalDateTime.now(), true));
     }
 
     @Override
@@ -44,10 +44,12 @@ public class MemoryVacancyRepository implements VacancyRepository {
     public boolean update(Vacancy vacancy) {
         return vacancies.computeIfPresent(
                 vacancy.getId(),
-                (id, oldVacancy) -> new Vacancy(oldVacancy.getId(),
+                (id, oldVacancy) -> new Vacancy(
+                        oldVacancy.getId(),
                         vacancy.getTitle(),
                         vacancy.getDescription(),
-                        vacancy.getLocalDateTime())
+                        vacancy.getLocalDateTime(),
+                        vacancy.getVisible())
         ) != null;
     }
 
