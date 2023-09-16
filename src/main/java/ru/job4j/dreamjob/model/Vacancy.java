@@ -17,20 +17,31 @@ public class Vacancy {
 
     private int cityId;
 
+    private int fileId;
+
     public Vacancy() {
     }
 
-    public Vacancy(int id, String title, String description, LocalDateTime localDateTime, boolean visible, int cityId) {
+    public Vacancy(int id, String title, String description, LocalDateTime localDateTime, boolean visible, int cityId, int fileId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.localDateTime = localDateTime;
         this.visible = visible;
         this.cityId = cityId;
+        this.fileId = fileId;
     }
 
     public int getCityId() {
         return cityId;
+    }
+
+    public int getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(int fileId) {
+        this.fileId = fileId;
     }
 
     public void setCityId(int cityId) {
