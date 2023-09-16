@@ -36,7 +36,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean deleteById(int id) {
         return vacancies.remove(id) != null;
     }
 
@@ -48,7 +48,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
                         oldVacancy.getId(),
                         vacancy.getTitle(),
                         vacancy.getDescription(),
-                        vacancy.getLocalDateTime(),
+                        vacancy.getCreationDate(),
                         vacancy.getVisible(),
                         vacancy.getCityId(),
                         vacancy.getFileId())
@@ -56,7 +56,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
     }
 
     @Override
-    public Optional<Vacancy> findBy(int id) {
+    public Optional<Vacancy> findById(int id) {
         return Optional.ofNullable(vacancies.get(id));
     }
 

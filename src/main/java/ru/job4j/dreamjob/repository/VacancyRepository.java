@@ -9,11 +9,11 @@ public interface VacancyRepository {
 
     Vacancy save(Vacancy vacancy);
 
-    boolean delete(int id);
+    boolean deleteById(int id);
 
     boolean update(Vacancy vacancy);
 
-    Optional<Vacancy> findBy(int id);
+    Optional<Vacancy> findById(int id);
 
     Collection<Vacancy> findAll();
 
