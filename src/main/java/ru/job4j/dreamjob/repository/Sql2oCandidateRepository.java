@@ -66,7 +66,7 @@ public class Sql2oCandidateRepository implements CandidateRepository {
 
     @Override
     public Optional<Candidate> findBy(int id) {
-        try (var connection = sql2o.open() ) {
+        try (var connection = sql2o.open()) {
             var query = connection.createQuery("SELECT * FROM candidates WHERE id = :id")
                     .addParameter("id", id);
             var candidate = query
