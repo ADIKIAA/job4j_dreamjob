@@ -10,7 +10,7 @@ public class Vacancy {
             "id", "id",
             "title", "title",
             "description", "description",
-            "creation_date", "creationDate",
+            "creation_date", "localDateTime",
             "visible", "visible",
             "city_id", "cityId",
             "file_id", "fileId"
@@ -33,8 +33,7 @@ public class Vacancy {
     public Vacancy() {
     }
 
-    public Vacancy(int id, String title, String description, LocalDateTime localDateTime, boolean visible, int cityId, int fileId) {
-        this.id = id;
+    public Vacancy(String title, String description, LocalDateTime localDateTime, boolean visible, int cityId, int fileId) {
         this.title = title;
         this.description = description;
         this.localDateTime = localDateTime;

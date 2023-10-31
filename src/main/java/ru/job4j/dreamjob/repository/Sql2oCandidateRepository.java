@@ -1,11 +1,13 @@
 package ru.job4j.dreamjob.repository;
 
+import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.dreamjob.model.Candidate;
 
 import java.util.Collection;
 import java.util.Optional;
 
+@Repository
 public class Sql2oCandidateRepository implements CandidateRepository {
 
     private final Sql2o sql2o;
@@ -79,7 +81,6 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     @Override
     public Collection<Candidate> findAll() {
         try (var connection = sql2o.open()) {
-
             var query = connection.createQuery("SELECT * FROM candidates");
             return query.setColumnMappings(Candidate.COLUMN_MAPPING).executeAndFetch(Candidate.class);
         }

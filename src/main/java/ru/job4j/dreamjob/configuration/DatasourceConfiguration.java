@@ -26,7 +26,7 @@ public class DatasourceConfiguration {
             {
                 setUrl(url);
                 setUsername(username);
-                setPassword(getPassword());
+                setPassword(password);
             }
         };
     }

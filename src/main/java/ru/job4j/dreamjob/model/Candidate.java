@@ -10,7 +10,7 @@ public class Candidate {
             "id", "id",
             "name", "name",
             "description", "description",
-            "creation_date", "creationDate",
+            "creation_date", "createDate",
             "city_id", "cityId",
             "file_id", "fileId"
     );
