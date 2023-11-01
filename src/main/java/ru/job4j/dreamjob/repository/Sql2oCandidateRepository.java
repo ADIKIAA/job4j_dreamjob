@@ -49,7 +49,7 @@ public class Sql2oCandidateRepository implements CandidateRepository {
             var sql = """
                         UPDATE candidates
                         SET name = :name, description = :description, creation_date = :creationDate,
-                                    city_id = cityId, file_id = fileId
+                                    city_id = :cityId, file_id = :fileId
                         WHERE id = :id
                     """;
             var query = connection.createQuery(sql)
@@ -79,7 +79,6 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     @Override
     public Collection<Candidate> findAll() {
         try (var connection = sql2o.open()) {
-
             var query = connection.createQuery("SELECT * FROM candidates");
             return query.setColumnMappings(Candidate.COLUMN_MAPPING).executeAndFetch(Candidate.class);
         }

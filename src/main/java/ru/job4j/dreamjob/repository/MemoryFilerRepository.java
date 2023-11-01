@@ -3,6 +3,7 @@ package ru.job4j.dreamjob.repository;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.File;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -25,6 +26,11 @@ public class MemoryFilerRepository implements FileRepository {
     @Override
     public Optional<File> findById(int id) {
         return Optional.ofNullable(files.get(id));
+    }
+
+    @Override
+    public Collection<File> findAll() {
+        return files.values();
     }
 
     @Override

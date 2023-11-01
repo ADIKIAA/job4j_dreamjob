@@ -10,7 +10,7 @@ public class Vacancy {
             "id", "id",
             "title", "title",
             "description", "description",
-            "creation_date", "creationDate",
+            "creation_date", "localDateTime",
             "visible", "visible",
             "city_id", "cityId",
             "file_id", "fileId"

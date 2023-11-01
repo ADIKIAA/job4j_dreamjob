@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.dreamjob.model.File;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Repository
@@ -33,6 +34,14 @@ public class Sql2oFileRepository implements FileRepository {
             var query = connection.createQuery("SELECT * FROM files WHERE id = :id");
             var file = query.addParameter("id", id).executeAndFetchFirst(File.class);
             return Optional.ofNullable(file);
+        }
+    }
+
+    @Override
+    public Collection<File> findAll() {
+        try (var connection = sql2o.open()) {
+            var query = connection.createQuery("SELECT * FROM files");
+            return query.executeAndFetch(File.class);
         }
     }
 
