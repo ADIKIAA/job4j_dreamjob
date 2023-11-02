@@ -62,10 +62,10 @@ class Sql2oUserRepositoryTest {
     @Test
     public void saveSeveralUserWithSameEmailThenEmptyOptional() {
         var user1 = sql2oUserRepository.save(
-                new User("123@ya.ru", "name1", "password1")).get();
-        var user2 = new User("123@ya.ru", "name2", "password2");
-        Assertions.assertThrows(Exception.class, () ->
-                sql2oUserRepository.save(user2));
+                new User("123@ya.ru", "name1", "password1"));
+        var user2 = sql2oUserRepository.save(
+                new User("123@ya.ru", "name2", "password2"));
+        assertThat(user2).isEmpty();
     }
 
 }
