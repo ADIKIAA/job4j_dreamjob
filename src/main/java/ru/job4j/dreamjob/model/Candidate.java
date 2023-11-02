@@ -27,6 +27,9 @@ public class Candidate {
 
     private int fileId;
 
+    public Candidate() {
+    }
+
     public Candidate(int id, String name, String description, LocalDateTime createDate, int cityId, int fileId) {
         this.id = id;
         this.name = name;
